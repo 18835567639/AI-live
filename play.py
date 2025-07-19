@@ -1,4 +1,5 @@
-# venv\Scripts\activate
+# E:\.virtualenvs\kokoro-onnx-env\Scripts\activate
+
 
 import itertools
 import json
