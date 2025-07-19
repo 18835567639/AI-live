@@ -1,0 +1,39 @@
+[
+    {
+        "id": "start",
+        "goods_name": "开场介绍",
+        "goods_wav": "E:/kokoro-onnx/product/scene_1/start.wav",
+        "end_wav": "E:/kokoro-onnx/product/cart_index_radio/1.wav",
+        "buffer": 5,
+        "intro": "",
+        "images": [
+            "E:/kokoro-onnx/product/scene_1/images/start.jpeg"
+        ]
+    },
+    {
+        "id": "sku001",
+        "goods_name": "爵迹",
+        "goods_wav": "E:/kokoro-onnx/product/scene_1/sku_001.mp3",
+        "end_wav": "E:/kokoro-onnx/product/cart_index_radio/2.wav",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/kokoro-onnx/product/scene_1/images/sku_001_1.jpeg",
+            "E:/kokoro-onnx/product/scene_1/images/sku_001_2.jpeg",
+            "E:/kokoro-onnx/product/scene_1/images/sku_001_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku002",
+        "goods_name": "康熙皇朝",
+        "goods_wav": "E:/kokoro-onnx/product/scene_1/sku_002.wav",
+        "end_wav": "E:/kokoro-onnx/product/cart_index_radio/3.wav",
+        "buffer": 0,
+        "intro": "",
+        "images": [
+            "E:/kokoro-onnx/product/scene_1/images/sku_002_1.jpeg",
+            "E:/kokoro-onnx/product/scene_1/images/sku_002_2.jpeg",
+            "E:/kokoro-onnx/product/scene_1/images/sku_002_3.jpeg"
+        ]
+    }
+]

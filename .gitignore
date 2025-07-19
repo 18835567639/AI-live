@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# General
+*.pt
+*.onnx
+.DS_Store
+
+# Virtual environments
+venv/
+.env/
+env/
+
+# 或者只忽略 product 文件夹下的音频文件（保留其他音频）
+product/**/*.mp3
+product/**/*.wav
+
+# 编辑器相关
+.vscode/
+.idea/
