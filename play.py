@@ -1,4 +1,4 @@
-# E:\.virtualenvs\kokoro-onnx-env\Scripts\activate
+# venv\Scripts\activate
 
 
 import itertools
