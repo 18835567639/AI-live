@@ -110,7 +110,7 @@ def main():
             print(f"🎤 缺失语音《{wav_path}》")
             # make_audio(item["intro"], str(wav_path))
         
-        end_wav_path = Path(f"product/scene_{VERSION}/cart_index_radio/{item['cart_sort']}.wav").resolve()
+        end_wav_path = Path(f"product/scene_{VERSION}/cart_sort/{item['cart_sort']}.wav").resolve()
 
         # ---------- 更新标题 ----------
         set_obs_text(ws, "ProductText", item["goods_name"])
