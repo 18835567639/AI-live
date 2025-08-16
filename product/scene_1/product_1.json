@@ -1,20 +1,9 @@
 [
     {
-        "id": "start",
-        "goods_name": "开场介绍",
-        "goods_wav": "E:/AI-live/product/scene_1/start.wav",
-        "end_wav": "E:/AI-live/product/cart_index_radio/1.wav",
-        "buffer": 5,
-        "intro": "",
-        "images": [
-            "E:/AI-live/product/scene_1/images/start.jpeg"
-        ]
-    },
-    {
         "id": "sku001",
-        "goods_name": "爵迹",
-        "goods_wav": "E:/AI-live/product/scene_1/sku_001.mp3",
-        "end_wav": "E:/AI-live/product/cart_index_radio/2.wav",
+        "goods_name": "《如果历史是一群喵》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_001.wav",
+        "cart_sort": "1",
         "buffer": 3,
         "intro": "",
         "images": [
@@ -25,9 +14,9 @@
     },
     {
         "id": "sku002",
-        "goods_name": "康熙皇朝",
-        "goods_wav": "E:/AI-live/product/scene_1/sku_002.wav",
-        "end_wav": "E:/AI-live/product/cart_index_radio/3.wav",
+        "goods_name": "《小彗星旅行记》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_002.wav",
+        "cart_sort": "3",
         "buffer": 0,
         "intro": "",
         "images": [

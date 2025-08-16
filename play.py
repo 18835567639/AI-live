@@ -5,6 +5,7 @@ import itertools
 import json
 import subprocess
 from pathlib import Path
+import datetime
 
 import obsws_python as obs
 import pygame
@@ -16,7 +17,7 @@ pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=512)
 VOICE_CHANNEL = pygame.mixer.Channel(0)
 BGM_CHANNEL = pygame.mixer.Channel(1)
 
-# ----------------[ 你的可调参数 ]-----------------
+# ----------------[ 可调参数 ]-----------------
 VERSION = "1"  # scene版本
 OBS_HOST, OBS_PORT, OBS_PWD = "localhost", 6688, "6pkRZwWmFmQGvP0b"
 IMAGE_SRC_NAME = "ProductImage"  # OBS 里图片源名称
@@ -63,13 +64,28 @@ def set_obs_image(ws, img_path: Path):
 
 
 # 设置商品文案
-def set_obs_text(ws, new_text: str):
+def set_obs_text(ws, source, new_text: str):
     ws.set_input_settings(
-        "ProductText",  # OBS 中图片源的名称
+        source,  # OBS 中图片源的名称
         {"text": new_text},
         True,  # 立即生效
     )
 
+# 播报当前时间
+def play_current_time():
+    # 获取北京时间
+    now = datetime.datetime.utcnow() + datetime.timedelta(hours=8)
+    hh = now.hour
+    mm = now.minute
+    fname = f"{hh:02d}_{mm:02d}.wav"
+    wav_path = Path(f"product/scene_{VERSION}/minutes/{fname}").resolve()
+    if wav_path.exists():
+        print(f"正在播报当前时间：{fname}")
+        play_voice_async(wav_path)
+        while VOICE_CHANNEL.get_busy():
+            pygame.time.wait(300)
+    else:
+        print(f"未找到时间语音文件: {wav_path}")
 
 def main():
     # 连接 OBS
@@ -81,20 +97,26 @@ def main():
     with open(json_path, "r", encoding="utf-8") as f:
         products = json.load(f)
 
-    # play_bgm("product/scene_1/back-audio.wav")
+    # 播放背景音乐
+    play_bgm("product/scene_1/back_audio.mp3")
 
     for idx, item in enumerate(products, 1):
+        # 播报当前时间
+        play_current_time()
+
         # ---------- 获取语音文件 ----------
         wav_path = Path(item["goods_wav"]).resolve()
         if not wav_path.exists():
-            print(f"🎤 缺失语音，自动合成《 {wav_path}》")
+            print(f"🎤 缺失语音《{wav_path}》")
             # make_audio(item["intro"], str(wav_path))
         
-        end_wav_path = Path(item["end_wav"]).resolve()
+        end_wav_path = Path(f"product/scene_{VERSION}/cart_index_radio/{item['cart_sort']}.wav").resolve()
 
+        # ---------- 更新标题 ----------
+        set_obs_text(ws, "ProductText", item["goods_name"])
 
-        # ---------- 更新文本 ----------
-        set_obs_text(ws, item["goods_name"])
+        # ---------- 更新购物车指引文案 ----------
+        set_obs_text(ws, "CartText", f"购物车{item['cart_sort']}号链接")
 
         # ---------- 当前商品介绍时长 ----------
         # duration = audio_len_seconds(wav_path)
