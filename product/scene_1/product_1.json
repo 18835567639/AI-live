@@ -1,7 +1,7 @@
 [
     {
         "id": "sku001",
-        "goods_name": "《如果历史是一群喵》",
+        "goods_name": "《活着》",
         "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_001.wav",
         "cart_sort": "1",
         "buffer": 3,
@@ -14,15 +14,145 @@
     },
     {
         "id": "sku002",
-        "goods_name": "《小彗星旅行记》",
+        "goods_name": "《解忧杂货店》",
         "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_002.wav",
-        "cart_sort": "3",
-        "buffer": 0,
+        "cart_sort": "2",
+        "buffer": 3,
         "intro": "",
         "images": [
             "E:/AI-live/product/scene_1/images/sku_002_1.jpeg",
             "E:/AI-live/product/scene_1/images/sku_002_2.jpeg",
             "E:/AI-live/product/scene_1/images/sku_002_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku003",
+        "goods_name": "《人类简史》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_003.wav",
+        "cart_sort": "3",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_003_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_003_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_003_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku004",
+        "goods_name": "《曾国藩家书》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_004.wav",
+        "cart_sort": "4",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_004_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_004_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_004_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku005",
+        "goods_name": "《小狗钱钱》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_005.wav",
+        "cart_sort": "5",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_005_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_005_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_005_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku006",
+        "goods_name": "《窗边的小豆豆》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_006.wav",
+        "cart_sort": "6",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_006_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_006_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_006_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku007",
+        "goods_name": "《哈利·波特与魔法石》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_007.wav",
+        "cart_sort": "7",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_007_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_007_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_007_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku008",
+        "goods_name": "《被讨厌的勇气》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_008.wav",
+        "cart_sort": "8",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_008_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_008_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_008_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku009",
+        "goods_name": "《自卑与超越》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_009.wav",
+        "cart_sort": "9",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_009_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_009_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_009_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku010",
+        "goods_name": "《穷查理宝典》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_010.wav",
+        "cart_sort": "10",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_010_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_010_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_010_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku011",
+        "goods_name": "《原则》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_011.wav",
+        "cart_sort": "11",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_011_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_011_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_011_3.jpeg"
+        ]
+    },
+    {
+        "id": "sku012",
+        "goods_name": "《断舍离》",
+        "goods_wav": "E:/AI-live/product/scene_1/sku_radio/sku_012.wav",
+        "cart_sort": "12",
+        "buffer": 3,
+        "intro": "",
+        "images": [
+            "E:/AI-live/product/scene_1/images/sku_012_1.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_012_2.jpeg",
+            "E:/AI-live/product/scene_1/images/sku_012_3.jpeg"
         ]
     }
 ]

@@ -100,75 +100,77 @@ def main():
     # 播放背景音乐
     play_bgm("product/scene_1/back_audio.mp3")
 
-    for idx, item in enumerate(products, 1):
-        # 播报当前时间
-        play_current_time()
+    while True:
+        for idx, item in enumerate(products, 1):
+            # 播报当前时间
+            play_current_time()
 
-        # ---------- 获取语音文件 ----------
-        wav_path = Path(item["goods_wav"]).resolve()
-        if not wav_path.exists():
-            print(f"🎤 缺失语音《{wav_path}》")
-            # make_audio(item["intro"], str(wav_path))
-        
-        end_wav_path = Path(f"product/scene_{VERSION}/cart_sort/{item['cart_sort']}.wav").resolve()
+            # ---------- 获取语音文件 ----------
+            wav_path = Path(item["goods_wav"]).resolve()
+            if not wav_path.exists():
+                print(f"🎤 缺失语音《{wav_path}》")
+                # make_audio(item["intro"], str(wav_path))
+            
+            end_wav_path = Path(f"product/scene_{VERSION}/cart_sort/{item['cart_sort']}.wav").resolve()
 
-        # ---------- 更新标题 ----------
-        set_obs_text(ws, "ProductText", item["goods_name"])
+            # ---------- 更新标题 ----------
+            set_obs_text(ws, "ProductText", item["goods_name"])
 
-        # ---------- 更新购物车指引文案 ----------
-        set_obs_text(ws, "CartText", f"购物车{item['cart_sort']}号链接")
+            # ---------- 更新购物车指引文案 ----------
+            set_obs_text(ws, "CartText", f"购物车{item['cart_sort']}号链接")
 
-        # ---------- 当前商品介绍时长 ----------
-        # duration = audio_len_seconds(wav_path)
+            # ---------- 当前商品介绍时长 ----------
+            # duration = audio_len_seconds(wav_path)
 
-        # ---------- 当前商品结束语时长 ----------
-        # end_duration = audio_len_seconds(end_wav_path)
+            # ---------- 当前商品结束语时长 ----------
+            # end_duration = audio_len_seconds(end_wav_path)
 
-        # ---------- 图片列表 ----------
-        imgs = item.get("images", [])
-        if imgs:
-            img_cycle = itertools.cycle(imgs)
-            first_img = Path(next(img_cycle)).resolve()
-            if first_img.exists():
-                set_obs_image(ws, first_img)
-            else:
-                print("⚠ 图片不存在:", first_img)
-        else:
-            print("⚠ 未设置图片")
-            set_obs_image(ws, products[0]["images"][0])
-
-        # -------- 播放语音并轮播图片 --------
-        print(f"开始播放 ---《{item['goods_name']}》---")
-        play_voice_async(wav_path)
-
-        # ---------- 轮播期间 ----------
-        while VOICE_CHANNEL.get_busy():
-            pygame.time.wait(IMG_SWITCH_SEC * 1000)
+            # ---------- 图片列表 ----------
+            imgs = item.get("images", [])
             if imgs:
-                next_img = Path(next(img_cycle)).resolve()
-                if next_img.exists():
-                    set_obs_image(ws, next_img)
+                img_cycle = itertools.cycle(imgs)
+                first_img = Path(next(img_cycle)).resolve()
+                if first_img.exists():
+                    set_obs_image(ws, first_img)
                 else:
-                    print("⚠ 图片不存在:", next_img)
+                    print("⚠ 图片不存在:", first_img)
+            else:
+                print("⚠ 未设置图片")
+                set_obs_image(ws, products[0]["images"][0])
 
+            # -------- 播放语音并轮播图片 --------
+            print(f"开始播放 ---{item['goods_name']}---")
+            play_voice_async(wav_path)
 
-        # ---------- 播放结束语音, 结束语文件名对应购物车n号链接 ----------
-        if end_wav_path.exists():
-            pygame.time.wait(2000)
-            play_voice_async(end_wav_path)
+            # ---------- 轮播期间 ----------
             while VOICE_CHANNEL.get_busy():
-                pygame.time.wait(300)
-        else:
-            print(f"《{item['goods_name']}》无结束语文件")
+                pygame.time.wait(IMG_SWITCH_SEC * 1000)
+                if imgs:
+                    next_img = Path(next(img_cycle)).resolve()
+                    if next_img.exists():
+                        set_obs_image(ws, next_img)
+                    else:
+                        print("⚠ 图片不存在:", next_img)
 
-        print(f"---《{item['goods_name']}》--- 结束")
+
+            # ---------- 播放结束语音, 结束语文件名对应购物车n号链接 ----------
+            if end_wav_path.exists():
+                pygame.time.wait(2000)
+                play_voice_async(end_wav_path)
+                while VOICE_CHANNEL.get_busy():
+                    pygame.time.wait(300)
+            else:
+                print(f"{item['goods_name']}无结束语文件")
+
+            print(f"---{item['goods_name']}--- 结束")
 
 
-        # ---------- 缓冲 ----------
-        pygame.time.wait(int(item.get("buffer", 3)) * 1000)
+            # ---------- 缓冲 ----------
+            pygame.time.wait(int(item.get("buffer", 3)) * 1000)
 
-    ws.disconnect()
-    print("\n🎉 所有商品播放完毕，脚本结束")
+        # 不断开obs，直接从第一本书开始介绍
+        # ws.disconnect()
+        print("\n🎉 所有商品播放完毕，准备再次开始...\n")
 
 
 if __name__ == "__main__":
